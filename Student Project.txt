@@ -1,0 +1,52 @@
+create table BloodGroups(
+BloodId int primary key identity(1,1),
+BloodName varchar(20)
+)
+
+insert into BloodGroups values('A+')
+
+select * from BloodGroups 
+
+
+
+public List<BloodGroup> GetBloodGroup()
+{
+ List<BloodGroup> data=studentAdmissionEntities.BloodGroups.ToList();
+ return data;
+}
+
+public List<BloodGroup> GetBloodGroup()
+{
+return studentDetailsRepository.GetBloodGroup();
+}
+
+
+[Route("Api/GetBlood")]
+[HttpGet]
+public List<BloodGroup> GetBloodGroup()
+{
+return studentDetailsBusinessLogic.GetBloodGroup();
+}
+
+//Angular//
+
+GetBlood(url:string):any{
+return this.httpClient.get(url);
+}
+
+export class BloodGroups{
+BloodGroupId!:number
+BloodGroupName!:string
+}
+
+blood:BloodGroups=new BloodGroups();
+bloodGroups:BloodGroups[]=[];
+
+GetBlood():void{
+return this.studentAdmisssionService.GetBlood(this.url+'GetBlood').subscribe((a:any)=>{
+this.bloodGroups=a;
+});
+}
+
+BloodGroup:
+<select>
