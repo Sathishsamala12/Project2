@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HeadsetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="HeadsetDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="BrandName" Type="varchar" MaxLength="30" />
+    <Property Name="Model" Type="varchar" MaxLength="60" />
+    <Property Name="Colour" Type="varchar" MaxLength="30" />
+    <Property Name="Bluetooth" Type="varchar" MaxLength="30" />
+    <Property Name="Price" Type="int" />
+  </EntityType>
+  <EntityContainer Name="HeadsetModelStoreContainer">
+    <EntitySet Name="HeadsetDetails" EntityType="Self.HeadsetDetails" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
